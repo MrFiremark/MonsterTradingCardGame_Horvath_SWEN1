@@ -1,0 +1,119 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class ServerManager{
+-managingProfile :User
+
++register()
++login()
++buyPack()
++battle()
++scoreBoard()
++editProfile()
+}
+
+abstract class Card{
+- name :String
+- rarity :enum
+- element :enum
+- damage :int
+
+}
+
+class Spell{
+}
+
+class Monster{
+-type :String
+}
+
+class Collection{
+-cards: Card[]
+
++createCard()
+}
+
+class Deck{
+-deckCards :Card[]
+-remainingStackCards :Card[]
+
++loadDeck(Stack stack)
++addCard()
++orderCards()
++deleteCard()
+}
+
+class Marketplace{
+-trades :Trade[]
+
++getPack()
++createTrade()
++buyTrade(User user)
+}
+
+class Trade{
+-tradingUser :User
+-postedCard :Card
+
+getCost()
+}
+class Pack{
+-cost :int
+#packCards :Card[]
+
++getRandomCards()
+}
+
+class User{
+-name :String
+-password :String
+-coins :int
+-ELO :int
+-stack :Card[]
+-deck :Deck[]
+
++createDeck()
++editDeck()
++deleteDeck()
+}
+
+class Battle{
+-contestants :User[]
+-turnCounter :int
+-maxTurns :int
+-log :String[]
+
++matchMaking()
++eloCalc()
++fight()
++effectiveness()
+}
+
+User -- Deck
+
+Card <|-- Spell
+Card <|-- Monster
+
+Collection -- Card
+Collection -- Pack
+
+Marketplace -- Pack
+Marketplace -- Trade
+
+ServerManager -- Battle
+ServerManager -- Marketplace
+ServerManager -- User
+
+class GameManager(Client){
+-managingProfile :User
+-inputHandler :String
+
++register()
++login()
++buyPack()
++battle()
++scoreBoard()
++editProfile()
++quit()
+}
+@enduml
