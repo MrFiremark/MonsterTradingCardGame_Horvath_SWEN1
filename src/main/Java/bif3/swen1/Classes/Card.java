@@ -47,4 +47,14 @@ public abstract class Card {
     public void setDamage(int damage) {
         this.damage = damage;
     }
+
+    @Override
+    public String toString() {
+        return "[" +
+                "name='" + name + '\'' +
+                ", element=" + element +
+                ", rarity=" + rarity +
+                ", damage=" + damage +
+                ']';
+    }
 }

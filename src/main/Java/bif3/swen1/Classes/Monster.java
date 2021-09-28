@@ -19,4 +19,11 @@ public class Monster extends Card{
     public void setType(String type) {
         this.type = type;
     }
+
+    @Override
+    public String toString() {
+        return "MONSTER" + super.toString().substring(0,super.toString().length()-1) +
+                ", type='" + type + '\'' +
+                ']';
+    }
 }

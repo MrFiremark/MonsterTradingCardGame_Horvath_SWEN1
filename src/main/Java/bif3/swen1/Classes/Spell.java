@@ -9,4 +9,8 @@ public class Spell extends Card{
         super(name, element, rarity, damage);
     }
 
+    @Override
+    public String toString() {
+        return "SPELL" + super.toString();
+    }
 }
