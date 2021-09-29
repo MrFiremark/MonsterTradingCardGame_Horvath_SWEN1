@@ -17,10 +17,6 @@ public class Collection {
         return allCards;
     }
 
-    public void setAllCards(ArrayList<Card> allCards) {
-        this.allCards = allCards;
-    }
-
     public void loadCollection() throws IOException {
         String row;
         BufferedReader csvReader = new BufferedReader(new FileReader("Collection.csv"));

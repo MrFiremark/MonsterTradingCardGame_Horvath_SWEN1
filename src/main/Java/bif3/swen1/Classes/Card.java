@@ -16,36 +16,8 @@ public abstract class Card {
         this.damage = damage;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Elements getElement() {
-        return element;
-    }
-
-    public void setElement(Elements element) {
-        this.element = element;
-    }
-
     public Rarities getRarity() {
         return rarity;
-    }
-
-    public void setRarity(Rarities rarity) {
-        this.rarity = rarity;
-    }
-
-    public int getDamage() {
-        return damage;
-    }
-
-    public void setDamage(int damage) {
-        this.damage = damage;
     }
 
     @Override

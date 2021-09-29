@@ -19,8 +19,7 @@ public class Main {
             System.out.println("Welcome! What's your name?\nUsername:");
             String username = scanner.next();
             System.out.println("If that is what you want me to call you. What is your Passphrase?\nPassword:");
-            String password = scanner.nextLine();
-            gameManager.register(username, password);
+            gameManager.register(username, scanner.next());
         }else if (scanner.next().charAt(0) == 'L' || scanner.next().charAt(0) == 'l'){
             System.out.println("Welcome back! What's your name? \n Username: \n");
             String username = scanner.nextLine();

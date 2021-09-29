@@ -11,6 +11,10 @@ public class Marketplace {
         pack.getRandomCards();
         return pack.getPackCards();
     }
+    public int getPackCost(){
+        Pack pack = new Pack();
+        return pack.getCost();
+    }
     public void createTade(){}
     public void buyTrade(User user){}
 
