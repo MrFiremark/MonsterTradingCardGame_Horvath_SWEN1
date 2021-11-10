@@ -1,44 +1,64 @@
 package bif3.swen1.Classes;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class Deck {
 
     private String deckName;
-    private Card[] deckCards = new Card[4];
+    private final int deckSize = 4;
+    private final LinkedList<Card> deckCards = new LinkedList<>();
     private ArrayList<Card> remainingStackCards;
 
-    public Card[] getDeckCards() {
-        return deckCards;
+    public Deck(String deckName, ArrayList<Card> remainingStackCards) {
+        this.deckName = deckName;
+        this.remainingStackCards = new ArrayList<>(remainingStackCards);
     }
 
-    public void setDeckCards(Card[] deckCards) {
-        this.deckCards = deckCards;
+    public LinkedList<Card> getDeckCards() {
+        return deckCards;
     }
 
     public String getDeckName() {
         return deckName;
     }
 
+    //public int getDeckSize(){return deckCards.size(); }
+
     public void setDeckName(String deckName) {
         this.deckName = deckName;
     }
 
-    public void loadDeck(ArrayList<Card> stack){
-    }
     public void addCard(Card card){
-        //if (deckCards.length <= 4) {
-        int cardCounter = 0;
-        for (Card deckCard : deckCards)
-            if (deckCard != null)
-                cardCounter++;
-            deckCards[cardCounter] = card;
-        //}else{
-         //   System.out.println("The Deck is full!");
-        //}
+        if(deckCards.size() < deckSize && remainingStackCards.contains(card)){
+            deckCards.add(card);
+            remainingStackCards.remove(card);
+        }
+        else{
+            System.out.println("Card is already in your Deck!!");
+        }
     }
-    public void orderCards(){}
-    public void deleteCard(){}
+
+    public void swapCards(int index, Card card){
+        if(index < deckCards.size() && remainingStackCards.contains(card)){
+            remainingStackCards.add(deckCards.get(index));
+            deckCards.set(index, card);
+            remainingStackCards.remove(card);
+        }else{
+            System.out.println("Card does not exist!");
+        }
+    }
+
+    public void deleteCard(Card card){
+        if(deckCards.size() > 0 && deckCards.contains(card)){
+            deckCards.remove(card);
+            remainingStackCards.add(card);
+        }else if (deckCards.size() == 0){
+            System.out.println("Deck is empty!");
+        }else {
+            System.out.println("Card does not exist in your Deck!");
+        }
+    }
 
     @Override
     public String toString() {

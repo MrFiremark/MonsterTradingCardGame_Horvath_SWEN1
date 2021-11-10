@@ -51,6 +51,14 @@ class Marketplace{
 +buyTrade(User user)
 }
 
+class Factory{
+- finishedPack :Pack
+- chance :int
+- r :Random
+
++generatePack()
+}
+
 class Trade{
 -tradingUser :User
 -postedCard :Card
@@ -97,8 +105,10 @@ Card <|-- Monster
 Collection -- Card
 Collection -- Pack
 
-Marketplace -- Pack
+Marketplace -- Factory
 Marketplace -- Trade
+
+Factory -- Pack
 
 ServerManager -- Battle
 ServerManager -- Marketplace

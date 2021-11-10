@@ -11,4 +11,6 @@ public class ServerManager {
     public void seeScoreboard(){}
     public void editProfile(){}
 
+
+
 }

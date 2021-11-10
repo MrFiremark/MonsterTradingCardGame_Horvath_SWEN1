@@ -9,11 +9,21 @@ import java.util.stream.Collectors;
 
 public class Pack {
 
-    int cost = 5;
-    Card[] packCards = new Card[5];
+    private int cost = 5;
+    private Card[] packCards = new Card[5];
+    private int chance;
+    private Random r = new Random();
 
     public Card[] getPackCards() {
         return packCards;
+    }
+
+    public Card getPackCard(int index) {
+        return packCards[index];
+    }
+
+    public void setPackCard(Card card, int index) {
+        this.packCards[index] = card;
     }
 
     public int getCost() {
@@ -23,9 +33,8 @@ public class Pack {
     public void getRandomCards() throws IOException {
         Collection collection = new Collection();
         collection.loadCollection();
-        Random r = new Random();
         for(int i=0; i<=4; i++) {
-            int chance = r.nextInt(100) + 1;
+            chance = r.nextInt(100) + 1; // globale variable + funktion für raritylist
             if (chance <= 3) {
                 List<Card> legendaryList = collection.getAllCards()
                         .stream()

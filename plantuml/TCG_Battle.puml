@@ -1,0 +1,47 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+participant Contestant1 order 10
+participant Battle order 20
+participant Contestant2 order 30
+
+alt TurnCounter < 100
+loop while Contestant1_Card_i > 0 | Contestant2_Card_i > 0
+
+Battle -> Contestant1: get Contestant1_Card_i
+Contestant1 --> Battle: return Contestant1_Card_i
+Battle -> Contestant2: get Contestant2_Card_i
+Contestant2 --> Battle: return Contestant2_Card_i
+
+Battle->Battle: Get Element Multiplier
+Battle->Battle: Compare Damage
+
+alt Contestant1 won
+    Contestant1 <- Battle: Add Contestant2_Card_i
+    Battle -> Contestant2: Remove Contestant2_Card_i
+else Contestant2 won
+    Contestant1 <- Battle: Remove Contestant1_Card_i
+    Battle -> Contestant2: Add Contestant1_Card_i
+end
+
+Battle->Battle: Write Log Enty
+
+
+Battle->Battle: TurnCounter++
+
+end
+else TurnCounter = 100
+
+Battle -> Contestant1: Send Log
+Battle -> Contestant2: Send Log
+
+end
+
+Battle -> Contestant1: Calc ELO
+Battle -> Contestant2: Calc ELO
+
+Battle -> Contestant1: Send Log
+Battle -> Contestant2: Send Log
+
+@enduml
