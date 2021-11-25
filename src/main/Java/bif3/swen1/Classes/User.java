@@ -44,8 +44,12 @@ public class User {
         return decks;
     }
 
+    public Deck getBattleDeck(int index){
+        return decks.get(index);
+    }
+
     public void createDeck(){
-        int[] cardChoice = new int[4];
+
         int cardNumber;
         Scanner scanner = new Scanner(System.in);
         System.out.println("How do you want to name this Deck?:");
@@ -89,6 +93,7 @@ public class User {
         for(int i=0;i<=stack.size()-1;i++){
             System.out.println("\t" + (i+1) + " - " + stack.get(i).toString());
         }
+
         System.out.println("Choose a number listed above:");
 
         decks.get(index).swapCards(deckindex, stack.get(scanner.nextInt()-1));

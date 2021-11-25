@@ -1,5 +1,6 @@
 package bif3.swen1.Main;
 
+import bif3.swen1.Classes.Collection;
 import bif3.swen1.Classes.GameManager;
 
 import java.io.IOException;
@@ -11,6 +12,13 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
         GameManager gameManager = new GameManager();
+
+
+
+        Collection collection = new Collection();
+
+        System.out.println("Loading Database...");
+        collection.loadCsvIntoDB();
 
         System.out.println("Noblesse Oblige - RH \n You want to be a Mesiah and save our World? \n");
         System.out.println("Register (R/r) or login (L/l):");

@@ -22,7 +22,9 @@ public class GameManager {
         //TODO: SQL-Select from User_DB
     }
 
-    public void battle(){}
+    public void battle(){
+
+    }
 
     public void buyPack() throws IOException {
         if(managingUser.getCoins() >= 5){

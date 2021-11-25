@@ -23,7 +23,7 @@ public class Deck {
         return deckName;
     }
 
-    //public int getDeckSize(){return deckCards.size(); }
+    public Card getDeckCard(int index){return deckCards.get(index); }
 
     public void setDeckName(String deckName) {
         this.deckName = deckName;
